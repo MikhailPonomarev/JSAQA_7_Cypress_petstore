@@ -27,7 +27,7 @@ describe('Petstore api test', () => {
             initUser.phone,
             initUser.userStatus
             );
-		cy.request('PUT', 'https://petstore.swagger.io/v2/user/Alex', {
+		cy.request('PUT', `/${initUser.userName}`, {
 			id: editedUser.id,
 			username: editedUser.userName,
 			firstName: editedUser.firstName,
@@ -43,7 +43,7 @@ describe('Petstore api test', () => {
 	});
 
 	it('Should delete user', () => {
-		cy.request('DELETE', `https://petstore.swagger.io/v2/user/${initUser.userName}`).should(
+		cy.request('DELETE', `/${initUser.userName}`).should(
 			(response) => {
 				expect(response.status).to.eq(200);
 				expect(response.body.message).to.eq(initUser.userName);

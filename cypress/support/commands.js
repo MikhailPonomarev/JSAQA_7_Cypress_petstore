@@ -1,6 +1,6 @@
 // ***********************************************
 Cypress.Commands.add('createUser', (id, username, firstName, lastName, email, password, phone, userStatus) => {
-    cy.request('POST', 'https://petstore.swagger.io/v2/user', {
+    cy.request('POST', '/', {
 			id: id,
 			username: username,
 			firstName: firstName,
